@@ -19,7 +19,6 @@ spack:
       target: [x86_64]
       version: []
       buildable: true
-  include:
   view: false
   compilers:
   - compiler:
