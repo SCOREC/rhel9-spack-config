@@ -8,7 +8,7 @@ spack add gcc@13.1.0 %${coreGcc}
 spack concretize
 spack install --fail-fast
 spack compiler add $(spack location -i gcc@13.1.0)
-spack add llvm@16.0.2 %${coreGcc}
+spack add llvm@16.0.2 +clang %${coreGcc}
 spack concretize
 spack install --fail-fast
-spack compiler add $(spack location -i llvm@16.0.2)
+spack compiler add $(spack location -i clang@16.0.2)
