@@ -1,5 +1,7 @@
 #comment
 spack:
+  concretizer:
+    unify: when_possible
   config:
     target: x86_64
     install_tree:
