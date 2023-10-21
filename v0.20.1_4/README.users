@@ -8,6 +8,14 @@ will not be listed under `module av` (or `module av foo`) until `gcc` and
 Another mechanism to search for available packages is `module spider` or
 `module spider <name of package>`.
 
+==GCC 12.3.0 with MPICH 4.1.1 and CUDA 12.1.1==
+
+```
+module use /opt/scorec/spack/rhel9/v0201_4/lmod/linux-rhel9-x86_64/Core/
+module load gcc/12.3.0-iil3lno mpich/4.1.1-xpoyz4t cuda/12.1.1-zxa4msk
+```
+
+
 ==GCC 13.1.0 with MPICH 4.1.1==
 
 ```
