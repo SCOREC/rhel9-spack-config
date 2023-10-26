@@ -106,6 +106,14 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
+  definitions:
+  - pumiSim2023.1-230907dev:
+    - pumi@master %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev
+  - simFull2023.1-230907dev:
+    - simmetrix-simmodsuite@2023.1-230907dev
+      +base+parasolid+acis+discrete+abstract+adv+advmodel+import+paralleladapt+parallelmesh
+
   specs:
   - gcc@7.4.0%gcc@11.3.1_rhel9+binutils
   - gcc@13.1.0%gcc@7.4.0
@@ -125,4 +133,4 @@ spack:
   - cuda@11.5.2%gcc@10.4.0
   - cuda@11.6.2%gcc@10.4.0
   - cuda@11.7.1%gcc@10.4.0
-  - simmetrix-simmodsuite@2023.1-230907dev %gcc@12.3.0
+  - $simFull2023.1-230907dev
