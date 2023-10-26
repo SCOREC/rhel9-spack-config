@@ -18,6 +18,8 @@ spack:
       lmod:
         core_compilers:
         - gcc@=7.4.0
+        hierarchy:
+        - mpi
   packages:
     all:
       compiler: [gcc@13.1.0]
@@ -111,7 +113,7 @@ spack:
     - pumi@master %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev
   - simFull2023.1-230907dev:
-    - simmetrix-simmodsuite@2023.1-230907dev
+    - simmetrix-simmodsuite@2023.1-230907dev %gcc@12.3.0
       +base+parasolid+acis+discrete+abstract+adv+advmodel+import+paralleladapt+parallelmesh
 
   specs:
