@@ -9,8 +9,9 @@ spack add gcc@10.4.0 %${coreGcc}
 spack concretize
 spack install --fail-fast
 spack compiler add $(spack location -i gcc@10.4.0)
-spack add cuda@11.2.2 %gcc@10.4.0
-spack add cuda@11.1.1 %gcc@10.4.0
+spack add cuda@11.7.1%gcc@10.4.0
+spack concretize
+spack install --fail-fast
 
 spack add gcc@12.3.0 %${coreGcc}
 spack concretize
