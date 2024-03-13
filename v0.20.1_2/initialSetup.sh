@@ -16,3 +16,6 @@ spack compiler add $(spack location -i clang@16.0.2)
 spack add mpich %gcc@13.1.0
 spack concretize
 spack install --fail-fast
+spack add mpich ~fortran %clang@16.0.2
+spack concretize
+spack install --fail-fast
