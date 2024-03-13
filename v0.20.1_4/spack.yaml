@@ -20,6 +20,14 @@ spack:
         - gcc@=7.4.0
         hierarchy:
         - mpi
+        projections:
+          all: '{name}/{version}'
+          ^simmetrix-simmodsuite: '{name}/{version}-simmodsuite-{^simmetrix-simmodsuite.version}'
+        pumi:
+          suffixes:
+            ^metis+int64: int64
+            ^metis~int64: int32
+            +shared: shared
         simmetrix-simmodsuite:
           environment:
             set:
