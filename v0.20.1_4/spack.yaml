@@ -160,5 +160,5 @@ spack:
   - $pumiSim2024.0-240119dev
   - netlib-lapack %gcc@12.3.0
   - openblas %gcc@12.3.0
-  - $pumiSim2024.0-240219dev
+  - adios2+python %gcc@12.3.0
 
