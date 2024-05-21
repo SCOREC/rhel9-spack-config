@@ -33,6 +33,10 @@ spack:
             set:
               SIM_LICENSE_FILE: /net/common/meshSim/license/license.txt
               "{name}_ROOT": "{prefix}"
+        all:
+          environment:
+            set:
+              "{name}_RHEL9_ROOT": "{prefix}"
   packages:
     all:
       compiler: [gcc@13.1.0]
@@ -177,6 +181,7 @@ spack:
   - parallel-netcdf@1.12.3 %gcc@12.3.0
   - netcdf-cxx4@4.3.1 %gcc@12.3.0
   - nco@5.1.5 %gcc@12.3.0
+  - superlu@5.3.0 %gcc@12.3.0
 
 
 
