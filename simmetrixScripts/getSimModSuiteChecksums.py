@@ -3,20 +3,24 @@
 import os, sys
 import hashlib
 
-def md5(fname):
-  print("fname", fname)
+def md5(fname, debug):
+  if debug:
+     print("fname", fname)
   hash_256 = hashlib.sha256()
   with open(fname, "rb") as f:
     for chunk in iter(lambda: f.read(4096), b""):
         hash_256.update(chunk)
     return hash_256.hexdigest()
 
-if len(sys.argv) != 3:
-  print("Usage: {0} <version string> </path/to/tarballs>".format(sys.argv[0]))
+if len(sys.argv) != 3 and len(sys.argv) != 4:
+  print("Usage: {0} <version string> </path/to/tarballs> [debug=off|on]".format(sys.argv[0]))
   sys.exit() 
 
 version = sys.argv[1]
 path = sys.argv[2]
+debug = False
+if len(sys.argv) == 4 and sys.argv[3] == "on":
+  debug = True
 dirs = os.listdir( path )
 
 componentToLicense = { 
@@ -32,10 +36,10 @@ componentToLicense = {
     'discrete': 'discrete',
     'gmabstract': 'abstract',
     'gmadv': 'advmodel',
-    'gmimport': 'import',
     'gmvoxel': 'voxel',
     'msadv': 'adv',
     'mscrack': 'crack',
+    'octree': 'octree',
     'msparalleladapt': 'paralleladapt',
     'msparallelmesh': 'parallelmesh',
     'FieldSim': 'base',
@@ -44,6 +48,7 @@ componentToLicense = {
     'MeshSimAdapt': 'base',
     'MeshSimAdv': 'adv',
     'MeshSimAdvanced': 'adv',
+    'MeshSimOctree': 'octree',
     'MeshSimCrack': 'crack',
     'GeomSimAcis': 'acis',
     'GeomSimParasolid': 'parasolid',
@@ -72,36 +77,44 @@ docs = ''
 # components
 for file in dirs:
    if ".tgz" in file:
-      print("file:", file)
+      if debug:
+         print("file:", file)
       name = file.split('-')[0]
       d = {
        'name': name,
-       'md5': md5(path+file),
+       'md5': md5(path+file, debug),
        'lic': componentToLicense[name]
       }
       line = resource.format(**d)
-      components = components + '\n' + line
+      if components != "":
+        components = components + '\n' + line
+      else:
+        components = line
    if ".zip" in file:
-      print("file", file)
+      if debug:
+         print("file", file)
       name = file.split('.')[0]
       d = {
        'name': name,
-       'md5': md5(path+file),
+       'md5': md5(path+file, debug),
        'lic': componentToLicense[name]
       }
       line = resource.format(**d)
-      docs = docs + '\n' + line
+      if docs != "":
+         docs = docs + '\n' + line
+      else:
+         docs = line
 
-release = '''
-{{
+release = \
+'''{{
     \'version\': \'{version}\',
     \'components\': {{
-        {components}
+{components}
     }},
     \'docs\': {{
-       {docs}
+{docs}
     }}
-}}'''
+}},'''
 
 d = {
  'version': version, 
