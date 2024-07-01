@@ -52,6 +52,7 @@ GeomSimVoxel.zip
 GeomSimGranite.zip
 MeshSimAdapt.zip
 MeshSimAdvanced.zip
+MeshSimOctree.zip
 MeshSim.zip
 MeshSimCrack.zip
 ParallelMeshSimAdapt.zip
@@ -96,6 +97,7 @@ msparallelmesh-linux${wordSz}.tgz
 pskrnl-linux${wordSz}.tgz
 mscrack-linux${wordSz}.tgz
 opencascade-linux${wordSz}.tgz
+octree-linux${wordSz}.tgz
 )
 
 set +e
