@@ -15,5 +15,8 @@ spack concretize
 cd <version> #spack needs to be in the dir with the tarballs + zips
 spack install
 spack module lmod refresh
+#update documentation on my scorec website
+./fixSimmodsuiteDocs.sh `spack location -i simmetrix-simmodsuite@<version>`/html
+./updateSimmodsuiteDocs.sh `spack location -i simmetrix-simmodsuite@<version>` <version> 1
 ```
 
