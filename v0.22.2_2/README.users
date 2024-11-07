@@ -8,12 +8,20 @@ will not be listed under `module av` (or `module av foo`) until `gcc` and
 Another mechanism to search for available packages is `module spider` or
 `module spider <name of package>`.
 
-==GCC 12.4.0 with OpenMPI and Dakota==
+==GCC 13.2 with Mpich 4.2.3==
 
 ```
-module use /opt/scorec/spack/rhel9/v0222_1/lmod/linux-rhel9-x86_64/Core/
-module load gcc/12.4.0-2ndjbtr 
-module load openmpi
+module use /opt/scorec/spack/rhel9/v0222_2/lmod/linux-rhel9-x86_64/Core/
+module load gcc/13.2.0-4eahhas
+module load mpich/4.2.3-62uy3hd
+```
+
+==GCC 12.4 with Mpich 4.2.3 and Dakota==
+
+```
+module use /opt/scorec/spack/rhel9/v0222_2/lmod/linux-rhel9-x86_64/Core/
+module load gcc/12.4.0-5xg2r2h
+module load mpich
 module load dakota
 ```
 
