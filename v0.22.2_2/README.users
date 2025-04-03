@@ -25,3 +25,11 @@ module load mpich
 module load dakota
 ```
 
+==PyTorch 2.5.1 (CUDA enabled) with Python 3.11.9==
+
+```
+module use /opt/scorec/spack/rhel9/v0222_2/lmod/linux-rhel9-x86_64/Core/
+module load gcc/13.2.0-4eahhas mpich/4.2.3-q4swqut
+module load py-torch/2.5.1-un62ppx
+```
+
