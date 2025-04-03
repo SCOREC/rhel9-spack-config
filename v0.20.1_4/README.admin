@@ -3,17 +3,31 @@
 setupSpack.sh - sets env variables, activates spack environment
 initialSetup.sh - installs 'core' compiler, then compiler-MPI heirarchy for GCC-MPICH
 clangOpenmpi.sh - installs OpenMPI with Clang
-spack.yaml - initial spack configuration
+spack_initial.yaml - initial spack configuration
+spack.yaml - current spack configuration
 
-## how to install stack from scratch
+## how to install stack from scratch into a new spack environment
 
 The following was tested with spack v0.20.
 
+All the scripts used below should be edited to replace the hardcoded
+`v0201_4` (Spack version 0.20.1, fourth install instance) version
+string with one that refects the Spack version being used.
+
+The scripts require write access to `/opt/scorec/spack/rhel9`.
+
 ```
+git clone git@github.com:spack/spack.git
+# create the spack environment directory - see note about about version string format
+mkdir /path/to/spack/repo/<spackVersionString>
+# copy the initial yaml file into it
+cp spack_initial.yaml /path/to/spack/repo/<versionString>/spack.yaml
 source setupSpack.sh
-./initialSetup.sh # this takes at least an hour
-spack edit config # add GNU 7.4 gfortran as the clang f77 and fc compiler
+# install compilers and MPI and add them to the spack config (spack.yaml)
+./initialSetup.sh
+# run the following command and manually add GNU 7.4 gfortran as the clang f77 and fc compiler
+spack edit config
+# install openmpi build with the clang compilers
 ./clangOpenmpi.sh
 ```
-
 
