@@ -3,20 +3,10 @@ RHEL9 spack configuration files
 
 ## add a new simmetrix-simmodsuite version
 
+Run the following script from within a spack environment to install the
+specified version of SimModSuite:
+
 ```
-./downloadSimModSuite.sh <user> <pass> <version> 64 <dev=yes|no>
-./getSimModSuiteChecksums.py <version> <version>/ off  #the 2nd arg needs the trailing '/'
-#copy the output to a buffer
-spack edit simmetrix-simmodsuite
-#paste the buffer at the top of the RELEASE list
-spack config edit
-#add the new version
-spack concretize
-cd <version> #spack needs to be in the dir with the tarballs + zips
-spack install
-spack module lmod refresh
-#update documentation on my scorec website
-./fixSimmodsuiteDocs.sh `spack location -i simmetrix-simmodsuite@<version>`/html
-./updateSimmodsuiteDocs.sh `spack location -i simmetrix-simmodsuite@<version>` <version> 1
+./simmetrixScripts/installSimModSuite.sh <simmetrix password> <simmodsuite version> <dev=yes|no>
 ```
 
