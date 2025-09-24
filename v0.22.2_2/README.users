@@ -8,12 +8,13 @@ will not be listed under `module av` (or `module av foo`) until `gcc` and
 Another mechanism to search for available packages is `module spider` or
 `module spider <name of package>`.
 
-==GCC 13.2 with Mpich 4.2.3==
+==GCC 13.2 with Mpich 4.2.3 and CUDA 12.6.2==
 
 ```
 module use /opt/scorec/spack/rhel9/v0222_2/lmod/linux-rhel9-x86_64/Core/
 module load gcc/13.2.0-4eahhas
 module load mpich/4.2.3-62uy3hd
+module load cuda/12.6.2-gqq65nw
 ```
 
 ==GCC 12.4 with Mpich 4.2.3 and Dakota==
