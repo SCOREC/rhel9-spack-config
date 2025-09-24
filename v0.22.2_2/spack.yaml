@@ -8,18 +8,23 @@ spack:
   concretizer:
     unify: false
     reuse: false
+    targets:
+      granularity: generic
   config:
-    target: x86_64
     install_tree:
-      root: /opt/scorec/spack/rhel9/v0222_1/install
-    misc_cache: /opt/scorec/spack/rhel9/v0222_1/misc_cache
+      root: /opt/scorec/spack/rhel9/v0222_2/install
+    misc_cache: /opt/scorec/spack/rhel9/v0222_2/misc_cache
     build_stage:
-    - /space/cwsmith/spack/rhel9/v0222_1/build_stage
+    - /space/cwsmith/spack/rhel9/v0222_2/build_stage
     allow_sgid: false
+  packages:
+    all:
+      providers:
+        mpi: [mpich]
   modules:
     default:
       roots:
-        lmod: /opt/scorec/spack/rhel9/v0222_1/lmod
+        lmod: /opt/scorec/spack/rhel9/v0222_2/lmod
       lmod:
         core_compilers:
         - gcc@=11.4.1
@@ -59,10 +64,10 @@ spack:
   - compiler:
       spec: gcc@=13.2.0
       paths:
-        cc: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-13.2.0-rg4w4qd4mngj7lmnakjmeaif3g5pw4jz/bin/gcc
-        cxx: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-13.2.0-rg4w4qd4mngj7lmnakjmeaif3g5pw4jz/bin/g++
-        f77: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-13.2.0-rg4w4qd4mngj7lmnakjmeaif3g5pw4jz/bin/gfortran
-        fc: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-13.2.0-rg4w4qd4mngj7lmnakjmeaif3g5pw4jz/bin/gfortran
+        cc: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-13.2.0-4eahhasudvnzuezpebbcnazmygyererp/bin/gcc
+        cxx: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-13.2.0-4eahhasudvnzuezpebbcnazmygyererp/bin/g++
+        f77: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-13.2.0-4eahhasudvnzuezpebbcnazmygyererp/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-13.2.0-4eahhasudvnzuezpebbcnazmygyererp/bin/gfortran
       flags: {}
       operating_system: rhel9
       target: x86_64
@@ -72,10 +77,10 @@ spack:
   - compiler:
       spec: clang@=18.1.3
       paths:
-        cc: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/llvm-18.1.3-xvle72ypfzkv324p7brg7jsiuybfbkuo/bin/clang
-        cxx: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/llvm-18.1.3-xvle72ypfzkv324p7brg7jsiuybfbkuo/bin/clang++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
+        cc: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/llvm-18.1.3-mwjw2s5a7gxalrcoypma7qufk3xajgbg/bin/clang
+        cxx: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/llvm-18.1.3-mwjw2s5a7gxalrcoypma7qufk3xajgbg/bin/clang++
+        f77: null
+        fc: null
       flags: {}
       operating_system: rhel9
       target: x86_64
@@ -85,21 +90,30 @@ spack:
   - compiler:
       spec: gcc@=12.4.0
       paths:
-        cc: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-12.4.0-2ndjbtrtn5xfdhqjxajfajfyu5uzw3md/bin/gcc
-        cxx: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-12.4.0-2ndjbtrtn5xfdhqjxajfajfyu5uzw3md/bin/g++
-        f77: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-12.4.0-2ndjbtrtn5xfdhqjxajfajfyu5uzw3md/bin/gfortran
-        fc: /opt/scorec/spack/rhel9/v0222_1/install/linux-rhel9-skylake/gcc-11.4.1/gcc-12.4.0-2ndjbtrtn5xfdhqjxajfajfyu5uzw3md/bin/gfortran
+        cc: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-12.4.0-5xg2r2h6cc5mckmjid2g6bftg5kh3cof/bin/gcc
+        cxx: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-12.4.0-5xg2r2h6cc5mckmjid2g6bftg5kh3cof/bin/g++
+        f77: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-12.4.0-5xg2r2h6cc5mckmjid2g6bftg5kh3cof/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0222_2/install/linux-rhel9-x86_64_v3/gcc-11.4.1/gcc-12.4.0-5xg2r2h6cc5mckmjid2g6bftg5kh3cof/bin/gfortran
       flags: {}
       operating_system: rhel9
       target: x86_64
       modules: []
       environment: {}
       extra_rpaths: []
+  definitions:
+  - pumiSim2025.1-250602dev:
+    - pumi@develop %gcc@13.2.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2025.1-250602dev
   specs:
   - gcc@13.2.0%gcc@11.4.1
   - mpich%gcc@13.2.0
   - llvm@18.1.3%gcc@11.4.1+clang
-  - openmpi%clang@18.1.3
   - gcc@12.4.0%gcc@11.4.1
   - mpich%gcc@12.4.0
   - dakota%gcc@12.4.0
+  - cuda@12.6.2%gcc@13.2.0
+  - lcov%gcc@13.2.0
+  - py-torch %gcc@13.2.0 +cuda cuda_arch=86
+  - py-torchvision %gcc@13.2.0 ^py-torch %gcc@13.2.0 +cuda cuda_arch=86
+  - $pumiSim2025.1-250602dev
+  - py-cmake-format@0.6.11%gcc@13.2.0+yaml
