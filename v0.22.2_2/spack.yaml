@@ -38,6 +38,10 @@ spack:
             ^metis+int64: int64
             ^metis~int64: int32
             +shared: shared
+            +int64: mdsIdLong
+        hdf5:
+          suffixes:
+            +cxx: cxx
         simmetrix-simmodsuite:
           environment:
             set:
@@ -104,7 +108,11 @@ spack:
   - pumiSim2025.1-250602dev:
     - pumi@develop %gcc@13.2.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2025.1-250602dev
+  - pumiMdsIdLongSim2025.1-250602dev:
+    - pumi@develop %gcc@13.2.0 +int64 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2025.1-250602dev
   specs:
+  - gcc@8.5%gcc@11.4.1
   - gcc@13.2.0%gcc@11.4.1
   - mpich%gcc@13.2.0
   - llvm@18.1.3%gcc@11.4.1+clang
@@ -117,3 +125,8 @@ spack:
   - py-torchvision %gcc@13.2.0 ^py-torch %gcc@13.2.0 +cuda cuda_arch=86
   - $pumiSim2025.1-250602dev
   - py-cmake-format@0.6.11%gcc@13.2.0+yaml
+  - gmsh%gcc@13.2.0~fltk+shared ^/62uy3hd
+  - hdf5%gcc@13.2.0+cxx
+  - gsl%gcc@13.2.0
+  - ccache%gcc@13.2.0
+  - $pumiMdsIdLongSim2025.1-250602dev
