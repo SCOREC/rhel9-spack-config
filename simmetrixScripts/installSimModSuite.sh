@@ -51,7 +51,12 @@ sed "/RELEASES = / r $checksumFile" $pkg > modifiedPkg
 isVersionChecksumListed $version $pkg
 [ $? == 0 ] && cp modifiedPkg $pkg
 
-spec="pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@${version}"
+#for v0.20.1_4 spack env
+#spec="pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@${version}"
+
+#for v0.22.2_2 spack env
+spec="pumi@develop %gcc@13.2.0 +shared simmodsuite=full ~simmodsuite_version_check +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@${version}"
+
 spack add $spec # spack will not add the package if it already exists
 spack concretize
 pushd $version
