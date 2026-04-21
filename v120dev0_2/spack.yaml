@@ -1,0 +1,50 @@
+spack:
+  view: false
+
+  # Concretizer configuration
+  concretizer:
+    unify: false
+    reuse: false
+    targets:
+      granularity: generic
+
+  # Configuration for install locations and caches
+  # All paths point to subdirectories within this environment
+  config:
+    build_jobs: 6
+    # Install packages in environment subdirectory
+    install_tree:
+      root: /opt/scorec/spack/rhel9/v120dev0_2/install
+      projections:
+        all: '{name}-{version}-{hash:7}'
+    build_stage: /opt/scorec/spack/rhel9/v120dev0_2/build_stage
+    source_cache: /opt/scorec/spack/rhel9/v120dev0_2/source_cache
+    misc_cache: /opt/scorec/spack/rhel9/v120dev0_2/misc_cache
+
+  modules:
+    default:
+      roots:
+        lmod: /opt/scorec/spack/rhel9/v120dev0_2/lmod
+
+      lmod:
+        core_compilers:
+        - gcc@11.5.0/4ny7jec7crsbcjvtmjks3ruyby5vj7rv
+  packages:
+    gcc:
+      externals:
+      - spec: gcc@11.5.0 languages:='c,c++,fortran'
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+
+  # for initial setup, gcc@15.2.0 needs to be installed before any other specs
+  # can be added/concretized, see initialSetup.sh
+  specs:
+  - gcc@15.2.0 %gcc@11.5.0
+  - mpich %gcc@15.2.0
+  - cuda@13.1.1 ^coreutils %gcc@15.2.0
+  - cmake@4.2.3 %gcc@15.2.0
+  - ninja %gcc@15.2.0
