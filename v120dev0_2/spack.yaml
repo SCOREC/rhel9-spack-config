@@ -49,3 +49,4 @@ spack:
   - cmake@4.2.3 %gcc@15.2.0
   - ninja %gcc@15.2.0
   - ccache %gcc@15.2.0 ^cmake@4.2.3
+  - llvm@22.1.3+clang %gcc@11.5.0
