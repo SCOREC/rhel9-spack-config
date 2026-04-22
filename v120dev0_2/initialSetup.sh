@@ -16,8 +16,7 @@ spack add ninja %${latestGcc}
 spack concretize
 spack install --fail-fast
 
-## HAVEN'T RAN THE FOLLOWING YET
-#spack add ${latestLlvm} +clang %${coreGcc}
-#spack concretize
-#spack install --fail-fast
-#spack compiler add $(spack location -i ${latestLlvm})
+#the following took about an hour on checkers
+spack add ${latestLlvm} +clang %${coreGcc}
+spack concretize
+spack install --fail-fast
