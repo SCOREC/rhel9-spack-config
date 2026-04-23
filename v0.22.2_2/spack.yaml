@@ -111,6 +111,9 @@ spack:
   - pumiMdsIdLongSim2025.1-250602dev:
     - pumi@develop %gcc@13.2.0 +int64 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2025.1-250602dev
+  - pumiMdsIdLongSim2026.0-260411:
+    - pumi@develop %gcc@13.2.0 +int64 +shared simmodsuite=full
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2026.0-260411 
   specs:
   - gcc@8.5%gcc@11.4.1
   - gcc@13.2.0%gcc@11.4.1
@@ -130,3 +133,6 @@ spack:
   - gsl%gcc@13.2.0
   - ccache%gcc@13.2.0
   - $pumiMdsIdLongSim2025.1-250602dev
+  - netcdf-cxx4%gcc@13.2.0
+  - py-pytest%gcc@13.2.0 ^python@3.11.9
+  - $pumiMdsIdLongSim2026.0-260411
